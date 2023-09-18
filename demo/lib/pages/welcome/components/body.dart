@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:demo/pages/qr_scanner/qr_scanner.dart';
 
+import '../../qr_scanner/test.dart';
+
 class Body extends StatelessWidget {
   const Body({super.key});
 
@@ -81,6 +83,24 @@ class Body extends StatelessWidget {
                 );
               },
               child: const Text("Đăng ký",
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 20,
+                  ))),
+          const SizedBox(
+            height: 30,
+          ),
+          ElevatedButton(
+              style: buttonRegister,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PlantInfoScreen(),
+                  ),
+                );
+              },
+              child: const Text("Khách",
                   style: TextStyle(
                     color: Colors.black87,
                     fontSize: 20,

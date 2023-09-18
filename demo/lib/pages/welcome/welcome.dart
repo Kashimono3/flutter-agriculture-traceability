@@ -12,6 +12,7 @@ class welcome_scenner extends StatelessWidget {
     return const Scaffold(
       backgroundColor: Color(0xffEFFDF5),
       body: Body(),
+
     );
   }
 }

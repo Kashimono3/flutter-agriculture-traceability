@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           elevation: 0.0,
         )
       ),
-      home:   PlantInfoScreen(),
+      home:   welcome_scenner(),
       debugShowCheckedModeBanner: false,
       title: 'LaFarm',
     );

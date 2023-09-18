@@ -1,12 +1,14 @@
+import 'dart:core';
 class PlantData {
   final String name;
   final String category;
   final String plantingDate;
   final String location;
+  final String image;
   final List<GrowthStage> growthStages;
 
   PlantData(
-      this.name, this.category, this.plantingDate, this.location, this.growthStages);
+      this.name, this.category, this.plantingDate, this.location, this.image, this.growthStages);
 
   factory PlantData.fromJson(Map<String, dynamic> json) {
     final List<dynamic> growthStagesJson = json['growthStages'];
@@ -19,6 +21,7 @@ class PlantData {
       json['category'] ?? '',
       json['plantingDate'] ?? '',
       json['location'] ?? '',
+      json['image']??'',
       growthStages,
     );
   }
