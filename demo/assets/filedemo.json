@@ -1,0 +1,70 @@
+{
+  "atiso": {
+    "name": "atiso",
+    "category": "thảo dược",
+    "plantingDate": "2022-03-15",
+    "location": "Vườn trồng",
+    "growthStages": [
+      {
+        "stage": "Gieo hạt",
+        "description": "Gieo hạt cây atiso vào đất",
+        "date": "2022-03-15",
+        "image": "image1.jpg"
+      },
+      {
+        "stage": "Mọc cây con",
+        "description": "Cây con atiso bắt đầu nảy mầm",
+        "date": "2022-03-30",
+        "image": "image2.jpg"
+      },
+      {
+        "stage": "Trồng cây lớn",
+        "description": "Cây atiso con được trồng vào đất và bắt đầu phát triển",
+        "date": "2022-04-15",
+        "image": "image3.jpg"
+      },
+      {
+        "stage": "Ra hoa",
+        "description": "Cây atiso bắt đầu đưa ra hoa",
+        "date": "2022-05-01",
+        "image": "image4.jpg"
+      },
+      {
+        "stage": "Ra quả",
+        "description": "Quả atiso bắt đầu hình thành",
+        "date": "2022-06-15",
+        "image": "image5.jpg"
+      },
+      {
+        "stage": "Thu hoạch",
+        "description": "Thu hoạch quả atiso chín",
+        "date": "2022-08-01",
+        "image": "image6.jpg"
+      }
+    ]
+  },
+  "Lô Hội": {
+    "plantingDate": "2022-02-20",
+    "location": "Nhà",
+    "growthStages": [
+      {
+        "stage": "Trồng cây lớn",
+        "description": "Cây lô hội được trồng vào chậu và bắt đầu phát triển",
+        "date": "2022-02-20",
+        "image": "aloe_image1.jpg"
+      },
+      {
+        "stage": "Chăm sóc",
+        "description": "Tưới nước và bón phân cho cây lô hội đều đặn",
+        "date": "2022-03-15",
+        "image": "aloe_image2.jpg"
+      },
+      {
+        "stage": "Thu hoạch",
+        "description": "Thu hoạch lô hội cho mục đích sử dụng",
+        "date": "2022-06-01",
+        "image": "aloe_image3.jpg"
+      }
+    ]
+  }
+}
