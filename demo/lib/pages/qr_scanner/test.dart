@@ -1,33 +1,28 @@
 import 'dart:convert';
-import 'package:demo/pages/qr_scanner/qr_scanner.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle; // Import rootBundle
+import 'package:flutter/services.dart' show rootBundle;
 import '../../json/tree.dart';
+import '../components/cardTimeLine.dart';
+import '../components/timeline.dart';
 
 class PlantInfoScreen extends StatelessWidget {
   Future<PlantData> fetchData() async {
-    final jsonData = await rootBundle.loadString(
-        'assets/json/filedemo.json'); // Đặt đúng đường dẫn tới tệp JSON trong assets
-
+    final jsonData = await rootBundle.loadString('assets/json/filedemo.json');
+    print('JSON Data: $jsonData'); // Add this line to check the loaded JSON data
     final jsonMap = jsonDecode(jsonData);
-
-    return PlantData.fromJson(jsonMap['atiso']);
+    return PlantData.fromJson(jsonMap);
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-
           alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/image/logomini.png",
-                width:  40,
-                height: 40,),
-              SizedBox(width: 10,),
               const Text(
                 "La Farm",
                 style: TextStyle(
@@ -40,25 +35,21 @@ class PlantInfoScreen extends StatelessWidget {
             ],
           ),
         ),
-
         leading: Builder(
-
           builder: (BuildContext context) {
-
             return RotatedBox(
               quarterTurns: 0,
               child: IconButton(
                 onPressed: () {
-                  QRScanner();
+                  // Replace with your desired action on back button press
                   Navigator.pop(context);
                 },
-                icon:
-                    const Icon(Icons.arrow_back_ios_new, color: Color(0xff05986A)),
+                icon: const Icon(Icons.arrow_back_ios_new,
+                    color: Color(0xff05986A)),
               ),
             );
           },
         ),
-
       ),
       body: Center(
         child: FutureBuilder<PlantData>(
@@ -67,9 +58,10 @@ class PlantInfoScreen extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return CircularProgressIndicator();
             } else if (snapshot.hasError) {
-              return Text('Lỗi: ${snapshot.error}');
+              return Text('Error: ${snapshot.error}');
             } else {
               final plantData = snapshot.data;
+
               return SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,14 +69,12 @@ class PlantInfoScreen extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(left: 20.0, right: 20.0),
                       height: 370.0,
-                      // Set a fixed height to make it square
                       alignment: Alignment.center,
-                      // Center the content horizontally and vertically
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(30.0),
                         child: Image.asset(
                           'assets/image/plant/${plantData?.image}',
-                          fit: BoxFit.cover, // You can adjust the fit as needed
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -114,21 +104,46 @@ class PlantInfoScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Text('Giai đoạn phát triển:'),
-                    for (var stage in plantData?.growthStages ?? [])
-                      ListTile(
-                        title: Text(stage.stage),
-                        subtitle: Text(stage.description),
-                        leading:
-                            Image.asset('assets/image/plant/${stage.image}'),
-                      ),
-                  ],
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text('Lịch sử phát triển: '),
+                    Column(
+                      children: [
+            if (plantData != null)
+              ...plantData.growthStages.asMap().entries.map(
+            (entry) => _buildTimeLineElement(
+            context,
+            entry.value,
+            entry.key == 0,
+            entry.key == plantData.growthStages.length - 1,
+
+                    )
+                    ),],
                 ),
-              );
+              ]));
             }
           },
         ),
       ),
     );
   }
+}
+
+Widget _buildTimeLineElement(
+    BuildContext context, GrowthStage growthStage,bool isFirst, bool isLast) {
+  return Padding(
+    padding: const EdgeInsets.only(left: 20.0),
+    child: SingleChildScrollView(
+      child: MyTimeLineTitle(
+        isFirst: isFirst, // Adjust as needed
+        isLast: isLast,
+        cardTimeLine: CardTimeLine(
+          stage: growthStage.stage ?? '',
+          date: growthStage.date ?? '',
+          images: growthStage.images,
+        ),
+      ),
+    ),
+  );
 }

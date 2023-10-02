@@ -6,6 +6,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_scanner_overlay/qr_scanner_overlay.dart';
 import 'package:image_picker/image_picker.dart';
 
+
 const bgColor = Color(0xfffafafa);
 
 class QRScanner extends StatefulWidget {
@@ -169,4 +170,8 @@ class _QRScanner extends State<QRScanner> {
   void _screenWasClosed() {
     _screenOpened = false;
   }
+
+
+
 }
+

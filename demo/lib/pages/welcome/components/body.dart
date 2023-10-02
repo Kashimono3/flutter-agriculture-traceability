@@ -22,7 +22,7 @@ class Body extends StatelessWidget {
         children: <Widget>[
           Positioned(
               child: Image.asset(
-            "assets/image/logo.png",
+            "assets/image/logo/logo.png",
             width: size.width,
             height: size.height * 0.2,
           )),
