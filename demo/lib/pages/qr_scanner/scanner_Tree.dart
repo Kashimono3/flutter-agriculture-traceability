@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+
 import '../components/cardTimeLine.dart';
 import '../components/timeline.dart';
+
 
 class QRTree extends StatelessWidget {
   final String code;
@@ -92,10 +94,30 @@ class QRTree extends StatelessWidget {
                             color: Colors.black87,
                           ),
                         ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'Vị trí trồng : ${jsonData['location'] ?? 'Không có vị trí'}',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'Ngày trồng : ${jsonData['plantingDate'] ?? 'Không có ngày trồng'}',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.black87,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  const Text('Lịch sử canh tác:'),
+                  //const Text('Lịch sử canh tác:'),
                   if (jsonData['growthStages'] != null &&
                       jsonData['growthStages'] is List)
                     Column(
@@ -119,7 +141,7 @@ class QRTree extends StatelessWidget {
               ),
           ],
         ),
-      ),
+      )
     );
   }
 }

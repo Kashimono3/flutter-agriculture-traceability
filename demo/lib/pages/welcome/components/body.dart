@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:demo/pages/qr_scanner/qr_scanner.dart';
 
+import '../../components/navBar.dart';
 import '../../qr_scanner/test.dart';
 
 class Body extends StatelessWidget {
@@ -58,7 +59,7 @@ class Body extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QRScanner(),
+                    builder: (context) => nav(),
                   ),
                 );
               },
@@ -72,24 +73,7 @@ class Body extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          ElevatedButton(
-              style: buttonRegister,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Register(),
-                  ),
-                );
-              },
-              child: const Text("Đăng ký",
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 20,
-                  ))),
-          const SizedBox(
-            height: 30,
-          ),
+
           ElevatedButton(
               style: buttonRegister,
               onPressed: () {

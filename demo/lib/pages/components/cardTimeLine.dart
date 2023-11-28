@@ -28,6 +28,7 @@ class CardTimeLine extends StatelessWidget {
             children: [
               Text('Stage: $stage', textAlign: TextAlign.right),
               Text('Date: $date', textAlign: TextAlign.left),
+
             ],
           ),
           SizedBox(height: 10), // Add some space between text and images
