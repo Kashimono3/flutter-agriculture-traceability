@@ -2,12 +2,12 @@ import 'package:demo/styles/social.dart';
 import 'package:demo/styles/textField.dart';
 import 'package:flutter/material.dart';
 import 'package:demo/pages/welcome/welcome.dart';
-
+import '../../components/navBar.dart';
 import '../../styles/button.dart';
 import '../qr_scanner/qr_scanner.dart';
 
-class Register extends StatelessWidget {
-  Register({super.key});
+class Login extends StatelessWidget {
+  Login({super.key});
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -65,7 +65,7 @@ class Register extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QRScanner(),
+                    builder: (context) => nav(),
                   ),
                 );
               },
