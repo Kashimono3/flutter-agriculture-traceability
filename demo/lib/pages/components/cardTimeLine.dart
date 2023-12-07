@@ -18,8 +18,8 @@ class CardTimeLine extends StatelessWidget {
     List<String> displayedImages = images.take(3).toList();
 
     return Container(
-      margin: EdgeInsets.all(25),
-      padding: EdgeInsets.all(25),
+      margin: EdgeInsets.all(10),
+      padding: EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,7 +31,7 @@ class CardTimeLine extends StatelessWidget {
 
             ],
           ),
-          SizedBox(height: 10), // Add some space between text and images
+          SizedBox(height: 30), // Add some space between text and images
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(

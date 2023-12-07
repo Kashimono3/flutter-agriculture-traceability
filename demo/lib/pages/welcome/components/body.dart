@@ -1,4 +1,4 @@
-import 'package:demo/pages/register/register.dart';
+import 'package:demo/pages/login/login.dart';
 import 'package:demo/styles/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -59,7 +59,7 @@ class Body extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => nav(),
+                    builder: (context) => Login(),
                   ),
                 );
               },
@@ -80,7 +80,7 @@ class Body extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => PlantInfoScreen(),
+                    builder: (context) => nav(),
                   ),
                 );
               },
